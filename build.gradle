@@ -23,12 +23,14 @@ dependencies {
     kapt(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     kapt("io.micronaut:micronaut-inject-java")
     kapt("io.micronaut:micronaut-validation")
-    // processorの指定がおかしい、annotationProcessor -> compileOnlyへ
-    // https://github.com/micronaut-projects/micronaut-data/issues/243
-    // annotationProcessor("io.micronaut.data:micronaut-data-processor") //add
-    compileOnly("io.micronaut.data:micronaut-data-processor") //add
+    kapt("io.micronaut.data:micronaut-data-processor") //add
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa") //add
-    runtime("com.h2database:h2") //add
+    // RepositoryのDIうまく行かなかったが、以下を入れることで動くように
+    // https://gitter.im/micronautfw/general?at=5da6639239d0c70757b81d7a
+    implementation "io.micronaut.configuration:micronaut-hibernate-jpa:2.0.0.M1" //add
+    // runtime("com.h2database:h2") //add
+    compile("com.h2database:h2") //add H2コンソールで見るためにruntime->compile
+    implementation("io.micronaut.data:micronaut-data-jdbc") //add
     runtime("io.micronaut.sql:micronaut-jdbc-tomcat") //add
     compileOnly("jakarta.persistence:jakarta.persistence-api:2.2.2") //add
 

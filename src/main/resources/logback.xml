@@ -9,6 +9,9 @@
         </encoder>
     </appender>
 
+    <!-- add -->
+    <logger name="io.micronaut.context.condition" level="DEBUG"/>
+
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>

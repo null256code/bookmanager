@@ -1,14 +1,16 @@
-package bookmanager.infra.models
+package bookmanager.infra.dtos
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
+import javax.persistence.Table
 
 @Entity
-data class Book(
+@Table(name = "book")
+data class BookDTO(
         @Id @GeneratedValue
-        var id: Long,
+        var bookId: Long,
         var title: String
 ){
-        constructor(): this(0, "")
+    constructor(): this(0, "")
 }

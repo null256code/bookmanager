@@ -1,6 +1,9 @@
 micronaut:
   application:
     name: bookmanager
+  server:
+    cors:
+      enabled: true
 datasources:
   default:
     url: jdbc:h2:mem:devDb
@@ -11,10 +14,16 @@ datasources:
     dialect: H2
 jpa:
   default:
+    # https://gitter.im/micronautfw/questions?at=5d64325568406739f989cbcb
+    packages-to-scan:
+      - 'bookmanager.infra.dtos'
     entity-scan:
-      packages: 'bookmanager.infra.models'
+      packages:
+      - 'bookmanager.infra.dtos'
     properties:
       hibernate:
+        bytecode:
+          provider: none
         hbm2ddl:
           auto: update
         show_sql: true

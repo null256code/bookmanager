@@ -33,6 +33,8 @@ dependencies {
     implementation("io.micronaut.data:micronaut-data-jdbc") //add
     runtime("io.micronaut.sql:micronaut-jdbc-tomcat") //add
     compileOnly("jakarta.persistence:jakarta.persistence-api:2.2.2") //add
+    implementation("io.micronaut.beanvalidation:micronaut-hibernate-validator") //add
+    implementation("io.micronaut.flyway:micronaut-flyway") //add
 
     implementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     implementation("io.micronaut:micronaut-inject")

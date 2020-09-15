@@ -11,4 +11,6 @@ data class PublisherDTO(
         @Id @GeneratedValue
         var publisherId: Long,
         var name: String
-)
+) {
+    constructor() : this(0, "")
+}

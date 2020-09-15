@@ -12,4 +12,6 @@ data class BookPublisherDTO(
         var bookPublisherId: Long,
         var bookId: Long,
         var publisherId: Long
-)
+) {
+        constructor() : this(0, 0, 0)
+}
